@@ -9,8 +9,10 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
 
+  url='http://localhost:8081/';
+
   Login(data:any){
-    return this.http.post("http://localhost:8081/login",data).pipe(
+    return this.http.post(this.url+"login",data).pipe(
       catchError(this.handleError)
     )
   }
@@ -29,5 +31,21 @@ export class AdminService {
     }
     // Return an observable with a user-facing error message.
     return throwError(() => new Error(errorMessage));
+  }
+
+  forgotPassword(data:any){
+    return this.http.post(this.url+"forgot",data)
+  }
+
+  verifyUser(data:any){
+    return this.http.post(this.url+"verify",data)
+  }
+
+  resendCode(){
+    return this.http.get(this.url+"resend")
+  }
+
+  updatePassword(data:any){
+    return this.http.post(this.url+"update",data)
   }
 }
