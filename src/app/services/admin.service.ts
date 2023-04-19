@@ -48,4 +48,16 @@ export class AdminService {
   updatePassword(data:any){
     return this.http.post(this.url+"update",data)
   }
+
+  signup(data:any){
+    return this.http.post(this.url+"signup",data)
+  }
+
+  verifyNewUser(data:any){
+    return this.http.post(this.url+"verify_admin",data)
+  }
+
+  resendVerificationCode(){
+    return this.http.get(this.url+"resend_code")
+  }
 }

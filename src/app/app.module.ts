@@ -18,12 +18,16 @@ import { PopupComponent } from './components/popup/popup.component';
 import { UnsuccessPopupComponent } from './components/unsuccess-popup/unsuccess-popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { SignupComponent } from './components/signup/signup.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
   {path:'verify',component:VerificationComponent},
   {path:'reset',component:ResetPasswordComponent},
   {path:'forgot',component:ForgotPasswordComponent},
+  {path:'signup',component:SignupComponent},
+  {path:'verification',component:VerifyComponent}
 
 ];
 
@@ -35,7 +39,9 @@ const routes:Routes=[
     ResetPasswordComponent,
     PopupComponent,
     UnsuccessPopupComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SignupComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
