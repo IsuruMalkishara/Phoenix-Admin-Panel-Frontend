@@ -60,7 +60,7 @@ export class VerifyComponent {
      this.adminService.verifyNewUser(this.verificationCode).subscribe((res)=>{
       console.warn(res);
       if(res==true){
-        this.router.navigateByUrl(" ");
+        this.router.navigateByUrl("/");
         this.openDialog("Successfully Registered!")
 
         }else{

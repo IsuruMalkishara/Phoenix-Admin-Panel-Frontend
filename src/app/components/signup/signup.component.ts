@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 import { PopupComponent } from '../popup/popup.component';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -19,6 +20,7 @@ export class SignupComponent {
   phoneNumber:String="";
   password:String="";
   confirmPassword:String="";
+  profilePicture!:Observable<any>;
 
   isPasswordTrue:boolean=true;
   isEmailTrue:boolean=true;
@@ -32,10 +34,41 @@ export class SignupComponent {
       phoneNumber:['',[Validators.required,Validators.minLength(11),Validators.minLength(11)]],
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
-      confirmPassword:['',[Validators.required,Validators.minLength(8)]]
+      confirmPassword:['',[Validators.required,Validators.minLength(8)]],
+      profilePicture:['',Validators.required]
     })
   }
 
+  onSelectFile(event:any){
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    console.log(file);
+    this.convertToBase64(file)
+  }
+  convertToBase64(file: File) {
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      console.warn(d)
+      this.profilePicture = d
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+      subscriber.complete();
+    };
+    filereader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
+  }
 
 
   openDialog(){
@@ -48,7 +81,7 @@ export class SignupComponent {
   onSubmit(){
 
     this.submitted = true
-
+    console.warn(this.profilePicture);
     if(this.registerForm.invalid){
       return
     }else{
@@ -57,7 +90,8 @@ export class SignupComponent {
               "email":this.email,
               "phone":this.phoneNumber,
               "password":this.password,
-              "confirmPassword":this.confirmPassword
+              "confirmPassword":this.confirmPassword,
+              "profilePicture":this.profilePicture
 
             };
 

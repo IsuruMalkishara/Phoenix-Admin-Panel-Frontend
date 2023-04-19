@@ -60,4 +60,8 @@ export class AdminService {
   resendVerificationCode(){
     return this.http.get(this.url+"resend_code")
   }
+
+  getAdminDataById(id:any){
+    return this.http.get(this.url+"admin/"+id)
+  }
 }
