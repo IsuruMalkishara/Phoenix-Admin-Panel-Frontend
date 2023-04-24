@@ -33,33 +33,6 @@ export class AdminService {
     return throwError(() => new Error(errorMessage));
   }
 
-  forgotPassword(data:any){
-    return this.http.post(this.url+"forgot",data)
-  }
-
-  verifyUser(data:any){
-    return this.http.post(this.url+"verify",data)
-  }
-
-  resendCode(){
-    return this.http.get(this.url+"resend")
-  }
-
-  updatePassword(data:any){
-    return this.http.post(this.url+"update",data)
-  }
-
-  signup(data:any){
-    return this.http.post(this.url+"signup",data)
-  }
-
-  verifyNewUser(data:any){
-    return this.http.post(this.url+"verify_admin",data)
-  }
-
-  resendVerificationCode(){
-    return this.http.get(this.url+"resend_code")
-  }
 
   getAdminDataById(id:any){
     return this.http.get(this.url+"admin/"+id)
