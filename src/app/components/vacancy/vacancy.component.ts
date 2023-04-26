@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 export class VacancyComponent {
   allVacancyData:any;
 
-  constructor(private vacancyService:VacancyService){}
+  constructor(private vacancyService:VacancyService,private router:Router){}
 
   ngOnInit(){
 
@@ -24,8 +25,10 @@ this.allVacancyData=res;
 })
   }
 
-
-
+//view vacancy
+viewVacancy(id:any){
+  this.router.navigateByUrl("dashboard/vacancy/"+id);
+}
 
 
 }

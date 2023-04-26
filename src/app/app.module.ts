@@ -20,13 +20,19 @@ import { PopupComponent } from './components/popup/popup.component';
 import { UnsuccessPopupComponent } from './components/unsuccess-popup/unsuccess-popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
+import { ShowVacancyComponent } from './components/show-vacancy/show-vacancy.component';
+import { WarningPopupComponent } from './components/warning-popup/warning-popup.component';
+import { EditVacancyDataComponent } from './components/edit-vacancy-data/edit-vacancy-data.component';
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent,children: [
     { path: '', component: VacancyComponent },
+    { path: 'vacancy/:id', component: ShowVacancyComponent},
+    { path: 'vacancy/:id/edit', component: EditVacancyDataComponent},
 
 
   ]}
@@ -39,7 +45,10 @@ const routes:Routes=[
     PopupComponent,
     UnsuccessPopupComponent,
     DashboardComponent,
-    VacancyComponent
+    VacancyComponent,
+    ShowVacancyComponent,
+    WarningPopupComponent,
+    EditVacancyDataComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,8 @@ const routes:Routes=[
     MatListModule,
     MatToolbarModule,
     NgxPaginationModule,
-    MatTableModule
+    MatTableModule,
+    AngularEditorModule
 
   ],
   exports:[RouterModule,MatSidenavModule,MatTableModule],
