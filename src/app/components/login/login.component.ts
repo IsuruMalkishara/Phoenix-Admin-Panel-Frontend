@@ -55,7 +55,7 @@ export class LoginComponent {
         console.warn(this.result);
         sessionStorage.setItem("token",JSON.stringify(this.result.access_token));
         sessionStorage.setItem("userId",JSON.stringify(this.result.id));
-        this.router.navigateByUrl("dashboard");
+        this.router.navigateByUrl("dashboard/vacancy");
 
       },(error)=>{
         console.warn(error);

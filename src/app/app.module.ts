@@ -26,13 +26,17 @@ import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { ShowVacancyComponent } from './components/show-vacancy/show-vacancy.component';
 import { WarningPopupComponent } from './components/warning-popup/warning-popup.component';
 import { EditVacancyDataComponent } from './components/edit-vacancy-data/edit-vacancy-data.component';
+import { EmployerComponent } from './components/employer/employer.component';
+import { JobSeekerComponent } from './components/job-seeker/job-seeker.component';
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent,children: [
-    { path: '', component: VacancyComponent },
+    { path: 'vacancy', component: VacancyComponent },
     { path: 'vacancy/:id', component: ShowVacancyComponent},
     { path: 'vacancy/:id/edit', component: EditVacancyDataComponent},
+    { path: 'employer', component: EmployerComponent},
+    { path: 'jobseeker', component: JobSeekerComponent},
 
 
   ]}
@@ -48,7 +52,9 @@ const routes:Routes=[
     VacancyComponent,
     ShowVacancyComponent,
     WarningPopupComponent,
-    EditVacancyDataComponent
+    EditVacancyDataComponent,
+    EmployerComponent,
+    JobSeekerComponent
   ],
   imports: [
     BrowserModule,
