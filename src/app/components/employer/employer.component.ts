@@ -46,6 +46,11 @@ openDialogBox(id:any){
   });
 }
 
+//show vacancies
+showVacancies(id:any){
+  this.router.navigateByUrl("dashboard/employer/"+id+"/vacancy");
+}
+
 //search company
 search(){
   console.warn(this.searchText);

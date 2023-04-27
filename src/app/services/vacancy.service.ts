@@ -36,4 +36,8 @@ export class VacancyService {
   updateVacancy(id:any,data:any){
     return this.http.put(this.url+"vacancy/"+id,data);
   }
+
+  getVacancyByEmployerId(id:any){
+    return this.http.get(this.url+"vacancies/"+id);
+  }
 }

@@ -3,7 +3,7 @@
   <table class="vacancyData" mat-table [dataSource]="allVacancyData">
     <ng-container matColumnDef="vacancyNumber">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
-      <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
+      <td mat-cell *matCellDef="let i=index" style="text-align: center;">{{ i + 1 }}</td>
     </ng-container>
     <!-- Title Column -->
     <ng-container matColumnDef="title">
@@ -11,11 +11,6 @@
       <td mat-cell *matCellDef="let job">{{ job.title }}</td>
     </ng-container>
 
-    <!-- Employer Column -->
-    <ng-container matColumnDef="company">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Company</th>
-      <td mat-cell *matCellDef="let job">{{ job.employer.name }}</td>
-    </ng-container>
 
     <!-- requests Column -->
     <ng-container matColumnDef="requests">
@@ -33,8 +28,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['vacancyNumber','title', 'company', 'requests', 'view']"></tr>
-    <tr mat-row *matRowDef="let job; index as i; columns: ['vacancyNumber','title', 'requests', 'verified', 'view']"></tr>
+    <tr mat-header-row *matHeaderRowDef="['vacancyNumber','title', 'requests', 'view']"></tr>
+    <tr mat-row *matRowDef="let job; index as i; columns: ['vacancyNumber','title', 'requests', 'view']"></tr>
   </table>
 
 </div>

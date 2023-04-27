@@ -22,6 +22,7 @@ import { UnsuccessPopupComponent } from './components/unsuccess-popup/unsuccess-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MatBadgeModule } from '@angular/material/badge';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { ShowVacancyComponent } from './components/show-vacancy/show-vacancy.component';
@@ -31,6 +32,8 @@ import { EmployerComponent } from './components/employer/employer.component';
 import { JobSeekerComponent } from './components/job-seeker/job-seeker.component';
 import { EditEmployerComponent } from './components/edit-employer/edit-employer.component';
 import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
+import { EmployersVacancyComponent } from './components/employers-vacancy/employers-vacancy.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
@@ -38,8 +41,10 @@ const routes:Routes=[
     { path: 'vacancy', component: VacancyComponent },
     { path: 'vacancy/:id', component: ShowVacancyComponent},
     { path: 'vacancy/:id/edit', component: EditVacancyDataComponent},
+    { path: 'vacancy/:id/request', component: RequestsComponent},
     { path: 'employer', component: EmployerComponent},
     { path: 'employer/:id/edit', component: EditEmployerComponent},
+    { path: 'employer/:id/vacancy', component: EmployersVacancyComponent},
     { path: 'jobseeker', component: JobSeekerComponent},
 
 
@@ -61,7 +66,9 @@ const routes:Routes=[
     EmployerComponent,
     JobSeekerComponent,
     EditEmployerComponent,
-    DeleteEmployerComponent
+    DeleteEmployerComponent,
+    EmployersVacancyComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +89,8 @@ const routes:Routes=[
     NgxPaginationModule,
     MatTableModule,
     AngularEditorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatBadgeModule
 
   ],
   exports:[RouterModule,MatSidenavModule,MatTableModule],

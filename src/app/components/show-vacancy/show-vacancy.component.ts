@@ -47,4 +47,8 @@ this.openDialogBox(id);
 update(id:any){
   this.router.navigateByUrl("dashboard/vacancy/"+id+"/edit");
 }
+
+showRequests(id:any){
+  this.router.navigateByUrl("dashboard/vacancy/"+id+"/request");
+}
 }
