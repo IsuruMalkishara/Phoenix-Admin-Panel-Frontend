@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule } from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { PopupComponent } from './components/popup/popup.component';
 import { UnsuccessPopupComponent } from './components/unsuccess-popup/unsuccess-popup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +29,8 @@ import { WarningPopupComponent } from './components/warning-popup/warning-popup.
 import { EditVacancyDataComponent } from './components/edit-vacancy-data/edit-vacancy-data.component';
 import { EmployerComponent } from './components/employer/employer.component';
 import { JobSeekerComponent } from './components/job-seeker/job-seeker.component';
+import { EditEmployerComponent } from './components/edit-employer/edit-employer.component';
+import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
@@ -36,7 +39,9 @@ const routes:Routes=[
     { path: 'vacancy/:id', component: ShowVacancyComponent},
     { path: 'vacancy/:id/edit', component: EditVacancyDataComponent},
     { path: 'employer', component: EmployerComponent},
+    { path: 'employer/:id/edit', component: EditEmployerComponent},
     { path: 'jobseeker', component: JobSeekerComponent},
+
 
 
   ]}
@@ -54,7 +59,9 @@ const routes:Routes=[
     WarningPopupComponent,
     EditVacancyDataComponent,
     EmployerComponent,
-    JobSeekerComponent
+    JobSeekerComponent,
+    EditEmployerComponent,
+    DeleteEmployerComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +81,8 @@ const routes:Routes=[
     MatToolbarModule,
     NgxPaginationModule,
     MatTableModule,
-    AngularEditorModule
+    AngularEditorModule,
+    MatFormFieldModule
 
   ],
   exports:[RouterModule,MatSidenavModule,MatTableModule],

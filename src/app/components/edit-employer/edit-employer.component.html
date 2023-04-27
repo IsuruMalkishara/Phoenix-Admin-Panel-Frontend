@@ -1,0 +1,87 @@
+<div class="employer">
+  <div >
+    <div class="card" >
+      <div class="card-body" style="background-color: rgb(12, 12, 87)">
+        <h1 class="card-title-center" style="text-align: center;">{{ name }}</h1>
+        <form (submit)="updateEmployerData()" [formGroup]="updateEmployer">
+          <div class="form-group">
+            <div class="row" style="margin-top: 10px;">
+
+              <div class="col">
+                <img src="{{ logo }}" style="height: 60%;width:60%; ">
+              </div>
+              <div class="col">
+                <input class="form-control" type="file" value="{{ logo }}" name="logo"  accept="image/*" (change)="changeLogo($event)">
+              </div>
+
+          </div>
+            <div class="row" style="margin-top: 10px;">
+
+                <div class="col">
+                  <label for="companyName">Company Name:</label>
+                </div>
+                <div class="col">
+                  <input  formControlName="name" type="text" class="form-control" [(ngModel)]="name" value="{{ name }}" style="background-color: rgba(255, 255, 255, 0.425);">
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 10px;">
+
+              <div class="col">
+                <label for="address">Address:</label>
+              </div>
+              <div class="col">
+                <input  formControlName="address" type="text" class="form-control" [(ngModel)]="address" value="{{ address }}" style="background-color: rgba(255, 255, 255, 0.425);">
+              </div>
+
+          </div>
+          <div class="row" style="margin-top: 10px;">
+
+            <div class="col">
+              <label for="email">Email Address:</label>
+            </div>
+            <div class="col">
+              <input  formControlName="email" type="text" class="form-control" [(ngModel)]="email" value="{{ email }}" style="background-color: rgba(255, 255, 255, 0.425);">
+            </div>
+
+        </div>
+        <div class="row" style="margin-top: 10px;">
+
+          <div class="col">
+            <label for="phone">Phone Number:</label>
+          </div>
+          <div class="col">
+            <input  formControlName="phone" type="text" class="form-control" [(ngModel)]="phone" value="{{ phone }}" style="background-color: rgba(255, 255, 255, 0.425);">
+          </div>
+
+      </div>
+
+      <div class="row" style="margin-top: 10px;">
+
+        <div class="col">
+          <label for="verification">Verification:</label>
+        </div>
+        <div class="col">
+          <label>
+            <input type="checkbox" name="verification" [checked]="verification" [(ngModel)]="verification" (change)="changeVerification()">
+            Verified
+          </label>
+
+        </div>
+
+    </div>
+
+
+            <div class="row" style="margin-top: 10px;text-align: center;">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" >UPDATE</button>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployerService } from 'src/app/services/employer.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteEmployerComponent } from '../delete-employer/delete-employer.component';
 
 @Component({
   selector: 'app-employer',
@@ -9,8 +11,9 @@ import { EmployerService } from 'src/app/services/employer.service';
 })
 export class EmployerComponent {
   allEmployerData:any;
+  searchText:any;//for search company
 
-  constructor(private employerService:EmployerService,private router:Router){}
+  constructor(private employerService:EmployerService,private router:Router,private matDialogRef:MatDialog){}
 
   ngOnInit(){
 
@@ -26,8 +29,25 @@ this.allEmployerData=res;
   }
 
 //view employer
-viewEmployer(id:any){
-  this.router.navigateByUrl("dashboard/employer/"+id);
+editEmployer(id:any){
+  this.router.navigateByUrl("dashboard/employer/"+id+"/edit");
 }
 
+//delete employer
+deleteEmployer(id:any){
+  this.openDialogBox(id);
+}
+
+openDialogBox(id:any){
+  this.matDialogRef.open(DeleteEmployerComponent,{
+    data:{
+      id:id
+    }
+  });
+}
+
+//search company
+search(){
+  console.warn(this.searchText);
+}
 }

@@ -1,5 +1,6 @@
 <div class="employer" >
 
+
   <table class="employerData" mat-table [dataSource]="allEmployerData">
     <ng-container matColumnDef="companyNumber">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
@@ -25,6 +26,24 @@
       <td mat-cell *matCellDef="let company">{{ company.name }}</td>
     </ng-container>
 
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Address</th>
+      <td mat-cell *matCellDef="let company">{{ company.address }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Email</th>
+      <td mat-cell *matCellDef="let company">{{ company.email }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Phone</th>
+      <td mat-cell *matCellDef="let company">{{ company.phone }}</td>
+    </ng-container>
+
     <!-- Verification Column -->
     <ng-container matColumnDef="verified">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Verification</th>
@@ -34,18 +53,28 @@
       </td>
     </ng-container>
 
-    <!-- View Button Column -->
-    <ng-container matColumnDef="view">
+    <!-- Edit Button Column -->
+    <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
       <td mat-cell *matCellDef="let company" style="text-align: center;">
-        <button mat-icon-button color="primary" (click)="viewEmployer(company.id)">
-          <mat-icon style="color: rgb(8, 219, 247);">visibility</mat-icon>
+        <button mat-icon-button color="primary" (click)="editEmployer(company.id)">
+          <mat-icon [inline]="true" style="color: rgb(6, 182, 58);">create</mat-icon>
         </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['companyNumber','logo','name', 'verified', 'view']"></tr>
-    <tr mat-row *matRowDef="let company; index as i; columns: ['companyNumber','logo','name', 'verified', 'view']"></tr>
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="deleteEmployer(company.id)">
+          <mat-icon [inline]="true" style="color: rgb(241, 7, 7);">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['companyNumber','logo','name','address','email','phone', 'verified', 'edit','delete']"></tr>
+    <tr mat-row *matRowDef="let company; index as i; columns: ['companyNumber','logo','name', 'address','email','phone','verified', 'edit','delete']"></tr>
   </table>
 
 </div>
