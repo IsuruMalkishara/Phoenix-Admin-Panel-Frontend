@@ -10,7 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class DashboardComponent {
   userId:any;
   profilePicture:any;
-  name:any;
+  userName:any;
   result:any;
   constructor(private adminService:AdminService,private router: Router){}
 
@@ -25,7 +25,7 @@ this.adminService.getAdminDataById(this.userId).subscribe((res)=>{
   this.result=res;
   console.warn(this.result);
   this.profilePicture=this.result.profilePicture;
-  this.name=this.result.name;
+  this.userName=this.result.userName;
 
 })
   }

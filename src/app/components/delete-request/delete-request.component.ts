@@ -1,16 +1,17 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { EmployerService } from 'src/app/services/employer.service';
+import { Router } from '@angular/router';
+import { RequestsService } from 'src/app/services/requests.service';
 import { PopupComponent } from '../popup/popup.component';
 
 @Component({
-  selector: 'app-delete-employer',
-  templateUrl: './delete-employer.component.html',
-  styleUrls: ['./delete-employer.component.css']
+  selector: 'app-delete-request',
+  templateUrl: './delete-request.component.html',
+  styleUrls: ['./delete-request.component.css']
 })
-export class DeleteEmployerComponent {
+export class DeleteRequestComponent {
   id:any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private matDialogRef:MatDialog,private employerService:EmployerService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private matDialogRef:MatDialog,private requestService:RequestsService,private router:Router) {
     this.id = data.id
   }
 
@@ -26,7 +27,7 @@ export class DeleteEmployerComponent {
   }
 
   delete(id:any){
-    this.employerService.deleteEmployer(id).subscribe((res)=>{
+    this.requestService.deleteRequest(id).subscribe((res)=>{
           console.warn(res);
 
           if(res==true){

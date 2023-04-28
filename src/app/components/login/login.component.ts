@@ -14,7 +14,7 @@ export class LoginComponent {
 
   isInvalid=false;//validate user
 
-  email:String="";
+  userName:String="";
   password:String="";
 
   result:any;
@@ -28,7 +28,7 @@ export class LoginComponent {
 
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
-      email:['',[Validators.required]],
+      userName:['',[Validators.required]],
       password:['',[Validators.required]],
     })
   }
@@ -44,7 +44,7 @@ export class LoginComponent {
     }else{
       let loginData={
 
-        "email":this.email,
+        "userName":this.userName,
         "password":this.password
 
       };
@@ -55,6 +55,7 @@ export class LoginComponent {
         console.warn(this.result);
         sessionStorage.setItem("token",JSON.stringify(this.result.access_token));
         sessionStorage.setItem("userId",JSON.stringify(this.result.id));
+        sessionStorage.setItem("userType",JSON.stringify(this.result.userType));
         this.router.navigateByUrl("dashboard/vacancy");
 
       },(error)=>{

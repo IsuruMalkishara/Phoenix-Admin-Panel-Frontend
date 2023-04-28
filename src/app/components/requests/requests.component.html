@@ -1,1 +1,50 @@
-<p>requests works!</p>
+<div>
+  <div class="row" style="text-align: center;">
+    <h1 >{{ vacancy.title }}</h1>
+    <h3>{{ vacancy.employer.name }}</h3>
+
+  </div>
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="request" >
+
+      <table class="requestsData" mat-table [dataSource]="requests">
+        <ng-container matColumnDef="requestsNumber">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
+          <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Name of Job Seeker</th>
+          <td mat-cell *matCellDef="let request">{{ request.jobSeeker.firstName }} {{ request.jobSeeker.lastName }}</td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Title of Job Seeker</th>
+          <td mat-cell *matCellDef="let request">{{ request.jobSeeker.position }}</td>
+        </ng-container>
+
+        <!-- requests Column -->
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Experience of Job Seeker</th>
+            <td mat-cell *matCellDef="let request" style="text-align: center;">{{ request.jobSeeker.experience  }}</td>
+        </ng-container>
+
+        <!-- delete Button Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+          <td mat-cell *matCellDef="let request" style="text-align: center;">
+            <button mat-icon-button color="primary" (click)="deleteRequest(request.id)">
+              <mat-icon [inline]="true" style="color: rgb(241, 7, 7);">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['requestsNumber','name', 'title', 'experience', 'delete']"></tr>
+        <tr mat-row *matRowDef="let job; index as i; columns: ['requestsNumber','name','title', 'experience', 'delete']"></tr>
+      </table>
+
+    </div>
+
+  </div>
+</div>

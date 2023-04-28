@@ -31,9 +31,11 @@ import { EditVacancyDataComponent } from './components/edit-vacancy-data/edit-va
 import { EmployerComponent } from './components/employer/employer.component';
 import { JobSeekerComponent } from './components/job-seeker/job-seeker.component';
 import { EditEmployerComponent } from './components/edit-employer/edit-employer.component';
-import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
 import { EmployersVacancyComponent } from './components/employers-vacancy/employers-vacancy.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
+import { DeleteRequestComponent } from './components/delete-request/delete-request.component';
+
 
 const routes:Routes=[
   {path:'',component:LoginComponent},
@@ -66,9 +68,10 @@ const routes:Routes=[
     EmployerComponent,
     JobSeekerComponent,
     EditEmployerComponent,
-    DeleteEmployerComponent,
     EmployersVacancyComponent,
-    RequestsComponent
+    RequestsComponent,
+    DeleteEmployerComponent,
+    DeleteRequestComponent,
   ],
   imports: [
     BrowserModule,

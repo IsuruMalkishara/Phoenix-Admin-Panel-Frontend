@@ -19,7 +19,7 @@
 
     <!-- requests Column -->
     <ng-container matColumnDef="requests">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Requests</th>
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number of Requests</th>
         <td mat-cell *matCellDef="let job" style="text-align: center;">{{ job.numOfRequests }}</td>
     </ng-container>
 
@@ -34,7 +34,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['vacancyNumber','title', 'company', 'requests', 'view']"></tr>
-    <tr mat-row *matRowDef="let job; index as i; columns: ['vacancyNumber','title', 'requests', 'verified', 'view']"></tr>
+    <tr mat-row *matRowDef="let job; index as i; columns: ['vacancyNumber','title','company', 'requests', 'view']"></tr>
   </table>
 
 </div>
