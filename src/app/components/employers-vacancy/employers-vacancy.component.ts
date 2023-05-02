@@ -36,5 +36,8 @@ getVacancyDataById(){
 viewVacancy(id:any){
   this.router.navigateByUrl("dashboard/vacancy/"+id);
 }
-
+//add vacancy
+addVacancy(){
+  this.router.navigateByUrl("dashboard/employer/"+this.employerId+"/add");
+}
 }

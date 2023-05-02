@@ -1,4 +1,12 @@
 <div class="vacancy" >
+  <div class="row" >
+    <div class="col" style="text-align: right;">
+      <button mat-icon-button color="primary" (click)="addVacancy()">
+        <mat-icon style="color: rgb(6, 182, 58);">add_box</mat-icon>
+      </button>
+    </div>
+
+  </div>
 
   <table class="vacancyData" mat-table [dataSource]="allVacancyData">
     <ng-container matColumnDef="vacancyNumber">

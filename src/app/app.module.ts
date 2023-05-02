@@ -35,6 +35,7 @@ import { EmployersVacancyComponent } from './components/employers-vacancy/employ
 import { RequestsComponent } from './components/requests/requests.component';
 import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
 import { DeleteRequestComponent } from './components/delete-request/delete-request.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
 
 
 const routes:Routes=[
@@ -47,6 +48,7 @@ const routes:Routes=[
     { path: 'employer', component: EmployerComponent},
     { path: 'employer/:id/edit', component: EditEmployerComponent},
     { path: 'employer/:id/vacancy', component: EmployersVacancyComponent},
+    { path: 'employer/:id/add', component: PostJobComponent},
     { path: 'jobseeker', component: JobSeekerComponent},
 
 
@@ -72,6 +74,7 @@ const routes:Routes=[
     RequestsComponent,
     DeleteEmployerComponent,
     DeleteRequestComponent,
+    PostJobComponent,
   ],
   imports: [
     BrowserModule,

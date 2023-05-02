@@ -1,7 +1,7 @@
 <div class="vacancy">
 
   <div >
-    <div class="card" style="background-color: rgb(12, 12, 87)">
+    <div class="card" style="background-color: rgb(4, 69, 155)">
       <div class="card-body" >
         <h1 class="card-title-center" style="text-align: center;color: white;">{{ jobTitle }}</h1>
         <form (submit)="updateVacancy()" [formGroup]="updateJob">
@@ -36,6 +36,18 @@
                 </div>
 
             </div>
+            <div class="row" style="margin-top: 10px;">
+
+              <div class="col-sm-3">
+                <label for="logo" class="label">Description Image:</label>
+              </div>
+              <div class="col-sm-9" >
+                <input  formControlName="jobDescriptionImg" type="file" class="form-control" (change)="onSelectFile($event)"  accept="image/*" style="background-color: rgba(255, 255, 255, 0.425);width: 100%;">
+
+              </div>
+
+
+          </div>
             <div class="row" style="margin-top: 10px;">
 
                 <div class="col-sm-3">
@@ -78,7 +90,7 @@
 
             <div class="row" style="margin-top: 10px;text-align: center;">
               <div class="form-group">
-                <button type="submit"  class="btn " style="border-radius: 20px;width: 100%;background-color: rgba(51, 8, 209, 0.219);color: white;">UPDATE</button>
+                <button type="submit"  class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(198, 185, 245, 0.219);color: white;">UPDATE</button>
               </div>
             </div>
 

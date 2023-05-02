@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-edit-vacancy-data',
@@ -20,6 +21,7 @@ export class EditVacancyDataComponent {
   jobCategory:any;
   company:any;
   jobDescription:any;
+  jobDescriptionImg:any;
   jobModality:any;
   salaryRange:any;
   jobTitle:any;
@@ -74,6 +76,38 @@ editorConfig = {
   ]
 };
 
+onSelectFile(event:any){
+  const target = event.target as HTMLInputElement;
+  const file: File = (target.files as FileList)[0];
+  console.log(file);
+  this.convertToBase64(file)
+}
+convertToBase64(file: File) {
+  const observable = new Observable((subscriber: Subscriber<any>) => {
+    this.readFile(file, subscriber);
+  });
+
+  observable.subscribe((d) => {
+    console.warn(d)
+    this.jobDescriptionImg = d
+  })
+}
+
+readFile(file: File, subscriber: Subscriber<any>) {
+  const filereader = new FileReader();
+  filereader.readAsDataURL(file);
+
+  filereader.onload = () => {
+    subscriber.next(filereader.result);
+    subscriber.complete();
+  };
+  filereader.onerror = (error) => {
+    subscriber.error(error);
+    subscriber.complete();
+  };
+}
+
+
 getVacancyDataById(){
   this.vacancyService.getVacancyById(this.vacancyId).subscribe((res)=>{
     this.data=res;
@@ -81,6 +115,7 @@ getVacancyDataById(){
     this.jobCategory=this.data.category;
   this.company=this.data.employer;
   this.jobDescription=this.data.description;
+  this.jobDescriptionImg=this.data.jobDescriptionImg;
   this.jobModality=this.data.modality;
   this.salaryRange=this.data.salaryRange;
   this.jobTitle=this.data.title;
@@ -101,6 +136,7 @@ this.vacancy={
   "employer":this.companyId,
  "title":this.jobTitle,
  "description":this.jobDescription,
+ "descriptionImg":this.jobDescriptionImg,
  "salaryRange":this.salaryRange,
  "category":this.category,
  "modality":this.modality,

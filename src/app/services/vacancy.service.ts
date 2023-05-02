@@ -37,6 +37,10 @@ export class VacancyService {
     return this.http.put(this.url+"vacancy/"+id,data);
   }
 
+  addVacancy(data:any){
+    return this.http.post(this.url+"vacancy",data);
+  }
+
   getVacancyByEmployerId(id:any){
     return this.http.get(this.url+"vacancies/"+id);
   }
