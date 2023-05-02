@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MatBadgeModule } from '@angular/material/badge';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VacancyComponent } from './components/vacancy/vacancy.component';
 import { ShowVacancyComponent } from './components/show-vacancy/show-vacancy.component';
@@ -36,6 +37,8 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { DeleteEmployerComponent } from './components/delete-employer/delete-employer.component';
 import { DeleteRequestComponent } from './components/delete-request/delete-request.component';
 import { PostJobComponent } from './components/post-job/post-job.component';
+import { ViewJobseekerComponent } from './components/view-jobseeker/view-jobseeker.component';
+import { DeleteJobseekerComponent } from './components/delete-jobseeker/delete-jobseeker.component';
 
 
 const routes:Routes=[
@@ -50,6 +53,7 @@ const routes:Routes=[
     { path: 'employer/:id/vacancy', component: EmployersVacancyComponent},
     { path: 'employer/:id/add', component: PostJobComponent},
     { path: 'jobseeker', component: JobSeekerComponent},
+    { path: 'jobseeker/:id', component: ViewJobseekerComponent},
 
 
 
@@ -75,6 +79,8 @@ const routes:Routes=[
     DeleteEmployerComponent,
     DeleteRequestComponent,
     PostJobComponent,
+    ViewJobseekerComponent,
+    DeleteJobseekerComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +102,8 @@ const routes:Routes=[
     MatTableModule,
     AngularEditorModule,
     MatFormFieldModule,
-    MatBadgeModule
+    MatBadgeModule,
+    PdfViewerModule
 
   ],
   exports:[RouterModule,MatSidenavModule,MatTableModule],
