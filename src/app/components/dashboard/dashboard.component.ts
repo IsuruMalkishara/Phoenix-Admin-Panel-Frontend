@@ -9,6 +9,8 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class DashboardComponent {
   userId:any;
+  userType:any;
+  visible:boolean=false;
   profilePicture:any;
   userName:any;
   result:any;
@@ -16,6 +18,13 @@ export class DashboardComponent {
 
   ngOnInit(){
   this.userId=sessionStorage.getItem('userId');
+  this.userType=sessionStorage.getItem('userType');
+  if(this.userType.includes('Super Admin')){
+    console.warn("Super Admin");
+    this.visible=true;
+  }else{
+    console.warn("Admin");
+  }
     this.getAdminData();
 
   }
@@ -33,5 +42,9 @@ this.adminService.getAdminDataById(this.userId).subscribe((res)=>{
   logout(){
     sessionStorage.clear();
     this.router.navigateByUrl("");
+  }
+
+  edit(){
+    this.router.navigateByUrl("dashboard/admin/"+this.userId+"/edit");
   }
 }

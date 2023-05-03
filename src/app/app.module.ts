@@ -39,6 +39,10 @@ import { DeleteRequestComponent } from './components/delete-request/delete-reque
 import { PostJobComponent } from './components/post-job/post-job.component';
 import { ViewJobseekerComponent } from './components/view-jobseeker/view-jobseeker.component';
 import { DeleteJobseekerComponent } from './components/delete-jobseeker/delete-jobseeker.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
+import { DeleteAdminComponent } from './components/delete-admin/delete-admin.component';
 
 
 const routes:Routes=[
@@ -54,6 +58,9 @@ const routes:Routes=[
     { path: 'employer/:id/add', component: PostJobComponent},
     { path: 'jobseeker', component: JobSeekerComponent},
     { path: 'jobseeker/:id', component: ViewJobseekerComponent},
+    { path: 'admin', component: AdminComponent},
+    { path: 'admin/add', component: AddAdminComponent},
+    { path: 'admin/:id/edit', component: EditAdminComponent},
 
 
 
@@ -81,6 +88,10 @@ const routes:Routes=[
     PostJobComponent,
     ViewJobseekerComponent,
     DeleteJobseekerComponent,
+    AddAdminComponent,
+    AdminComponent,
+    EditAdminComponent,
+    DeleteAdminComponent,
   ],
   imports: [
     BrowserModule,

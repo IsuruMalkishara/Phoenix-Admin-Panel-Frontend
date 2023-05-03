@@ -37,4 +37,20 @@ export class AdminService {
   getAdminDataById(id:any){
     return this.http.get(this.url+"admin/"+id)
   }
+
+  updateAdmin(id:any,data:any){
+    return this.http.put(this.url+"admin/"+id,data);
+  }
+
+  addAdmin(data:any){
+    return this.http.post(this.url+"admin",data);
+  }
+
+  getAllAdmins(){
+    return this.http.get(this.url+"admin")
+  }
+
+  deleteAdmin(id:any){
+    return this.http.delete(this.url+"admin/"+id)
+  }
 }
