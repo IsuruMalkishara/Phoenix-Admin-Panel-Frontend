@@ -5,6 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { PopupComponent } from '../popup/popup.component';
 import { Observable, Subscriber } from 'rxjs';
+import { TypesService } from 'src/app/services/types.service';
+import { InputModality } from '@angular/cdk/a11y';
+import { CategoryService } from 'src/app/services/category.service';
+import { ModalitiesService } from 'src/app/services/modalities.service';
 
 @Component({
   selector: 'app-post-job',
@@ -38,7 +42,7 @@ export class PostJobComponent {
   jobTypeList:any;
 
 noDescription:boolean=false;
-  constructor(private formBuilder:FormBuilder,private matDialogRef:MatDialog,private vacancyService:VacancyService,private route: ActivatedRoute,private router: Router){
+  constructor(private formBuilder:FormBuilder,private matDialogRef:MatDialog,private vacancyService:VacancyService,private route: ActivatedRoute,private router: Router,private typesService:TypesService,private modalityService:ModalitiesService,private categoryService:CategoryService){
 
   }
 
@@ -48,13 +52,13 @@ noDescription:boolean=false;
       this.companyId = params['id'];
     });
 
-    this.vacancyService.categories().subscribe((data)=>{
+    this.categoryService.getCategories().subscribe((data)=>{
       this.jobCategoryList=data;
     });
-    this.vacancyService.modality().subscribe((data)=>{
+    this.modalityService.getModality().subscribe((data)=>{
       this.jobModalityList=data;
     });
-    this.vacancyService.types().subscribe((data)=>{
+    this.typesService.getTypes().subscribe((data)=>{
       this.jobTypeList=data;
     });
 

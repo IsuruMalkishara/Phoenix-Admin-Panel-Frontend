@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;background-color: rgba(255, 255, 255, 0.575);">
+  <div class="card-body" style="text-align: center;">
+    <form [formGroup]="updateCategory">
+      <div class="form-group">
+        
+        <div class="row" style="margin-top: 10px;">
+
+          <div class="col-sm-3">
+            <label for="id" class="label">Title:</label>
+          </div>
+          <div class="col-sm-9">
+            <input value="{{ title }}" formControlName="title" type="text" class="form-control" [(ngModel)]="title" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;" >
+
+          </div>
+
+      </div>
+    <button type="button" class="btn" style="margin: 5px;background-color: rgba(52, 8, 209, 0.514);color: white;border-radius: 20px;" (click)="update()">Update</button>
+    <button type="button" class="btn btn-danger" matDialogClose style="margin: 5px;border-radius: 20px;color: white;">CANCEL</button>
+  </div>
+  </form>
+  </div>
+</div>

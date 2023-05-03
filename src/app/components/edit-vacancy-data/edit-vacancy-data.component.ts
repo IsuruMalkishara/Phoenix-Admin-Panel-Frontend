@@ -5,6 +5,9 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subscriber } from 'rxjs';
+import { TypesService } from 'src/app/services/types.service';
+import { ModalitiesService } from 'src/app/services/modalities.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-edit-vacancy-data',
@@ -38,7 +41,7 @@ export class EditVacancyDataComponent {
 
   companyId:any;
 
-  constructor(private vacancyService:VacancyService,private matDialogRef:MatDialog,private route:ActivatedRoute,private router: Router,private formBuilder:FormBuilder){}
+  constructor(private vacancyService:VacancyService,private matDialogRef:MatDialog,private route:ActivatedRoute,private router: Router,private formBuilder:FormBuilder,private typesService:TypesService,private modalityService:ModalitiesService,private categoryService:CategoryService){}
 
   ngOnInit():void{
   this.route.params.subscribe(params => {
@@ -46,13 +49,13 @@ export class EditVacancyDataComponent {
   });
 
   this.getVacancyDataById();
-  this.vacancyService.categories().subscribe((data)=>{
+  this.categoryService.getCategories().subscribe((data)=>{
     this.jobCategoryList=data;
   });
-  this.vacancyService.modality().subscribe((data)=>{
+  this.modalityService.getModality().subscribe((data)=>{
     this.jobModalityList=data;
   });
-  this.vacancyService.types().subscribe((data)=>{
+  this.typesService.getTypes().subscribe((data)=>{
     this.jobTypeList=data;
   });
 

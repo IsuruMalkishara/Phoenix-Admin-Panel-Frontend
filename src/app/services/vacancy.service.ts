@@ -23,15 +23,7 @@ export class VacancyService {
     return this.http.delete(this.url+"vacancy/"+id)
   }
 
-  types() {
-    return this.http.get(this.url+"type");
-  }
-  modality() {
-    return this.http.get(this.url+"modality");
-  }
-  categories() {
-    return this.http.get(this.url+"category");
-  }
+
 
   updateVacancy(id:any,data:any){
     return this.http.put(this.url+"vacancy/"+id,data);
