@@ -1,1 +1,40 @@
-<p>add-job-type works!</p>
+<div class="card" style="width: 18rem;background-color: rgba(255, 255, 255, 0.575);">
+  <div class="card-body" style="text-align: center;">
+    <form [formGroup]="addType">
+      <div class="form-group">
+        <div class="row" style="margin-top: 10px;">
+
+            <div class="col-sm-3">
+              <label for="id" class="label">ID:</label>
+            </div>
+            <div class="col-sm-9">
+              <input [ngClass]="{'is-invalid':submitted && addType.controls['id'].errors}" formControlName="id" type="text" class="form-control" [(ngModel)]="id" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;" >
+              <div *ngIf="submitted && addType.controls['id'].errors" class="text-danger">
+                <div *ngIf="submitted && addType.controls['id'].errors['required']">
+                  ID is required
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-top: 10px;">
+
+          <div class="col-sm-3">
+            <label for="id" class="label">Title:</label>
+          </div>
+          <div class="col-sm-9">
+            <input [ngClass]="{'is-invalid':submitted && addType.controls['title'].errors}" formControlName="title" type="text" class="form-control" [(ngModel)]="title" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;" >
+            <div *ngIf="submitted && addType.controls['title'].errors" class="text-danger">
+              <div *ngIf="submitted && addType.controls['title'].errors['required']">
+                ID is required
+              </div>
+            </div>
+          </div>
+
+      </div>
+    <button type="button" class="btn" style="margin: 5px;background-color: rgba(52, 8, 209, 0.514);color: white;border-radius: 20px;" (click)="save()">Save</button>
+    <button type="button" class="btn btn-danger" matDialogClose style="margin: 5px;border-radius: 20px;color: white;">CANCEL</button>
+  </div>
+  </form>
+  </div>
+</div>

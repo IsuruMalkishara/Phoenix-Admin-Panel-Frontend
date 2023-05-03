@@ -50,6 +50,7 @@ import { DeleteJobTypeComponent } from './components/delete-job-type/delete-job-
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
 import { AddJobCategoryComponent } from './components/add-job-category/add-job-category.component';
 import { DeleteJobCategoryComponent } from './components/delete-job-category/delete-job-category.component';
+import { JobTypeComponent } from './components/job-type/job-type.component';
 
 
 const routes:Routes=[
@@ -69,6 +70,7 @@ const routes:Routes=[
     { path: 'admin/add', component: AddAdminComponent},
     { path: 'admin/:id/edit', component: EditAdminComponent},
     { path: 'category', component: JobCategoryComponent},
+    { path: 'type', component: JobTypeComponent},
 
 
 
@@ -107,6 +109,7 @@ const routes:Routes=[
     UpdateCategoryComponent,
     AddJobCategoryComponent,
     DeleteJobCategoryComponent,
+    JobTypeComponent,
   ],
   imports: [
     BrowserModule,
