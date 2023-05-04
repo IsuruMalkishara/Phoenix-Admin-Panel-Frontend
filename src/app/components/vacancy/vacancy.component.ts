@@ -9,6 +9,7 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 })
 export class VacancyComponent {
   allVacancyData:any;
+ searchText:any;
 
   constructor(private vacancyService:VacancyService,private router:Router){}
 
@@ -29,6 +30,20 @@ this.allVacancyData=res;
 viewVacancy(id:any){
   this.router.navigateByUrl("dashboard/vacancy/"+id);
 }
+
+//search vacancy
+search(text:any){
+console.warn(text);
+if(text==undefined || text.length==0){
+  this.getAllVacancy();
+}else{
+  this.vacancyService.searchVacancy(text).subscribe((res)=>{
+    console.warn(res);
+    this.allVacancyData=res;
+  })
+}
+}
+
 
 
 }

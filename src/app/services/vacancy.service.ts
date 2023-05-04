@@ -36,4 +36,8 @@ export class VacancyService {
   getVacancyByEmployerId(id:any){
     return this.http.get(this.url+"vacancies/"+id);
   }
+
+  searchVacancy(data:any){
+    return this.http.post(this.url+"vacancy/title",data);
+  }
 }
