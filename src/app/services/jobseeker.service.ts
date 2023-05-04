@@ -22,4 +22,8 @@ export class JobseekerService {
     return this.http.delete(this.url+"jobseeker/"+id)
   }
 
+  searchJobSeeker(data:any){
+    return this.http.post(this.url+"jobseeker/title",data);
+  }
+
 }

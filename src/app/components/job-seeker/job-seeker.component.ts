@@ -10,7 +10,7 @@ import { JobseekerService } from 'src/app/services/jobseeker.service';
 })
 export class JobSeekerComponent {
   allJobSeekerData:any;
-
+  searchText:any;
 
   constructor(private jobSeekerService:JobseekerService,private router:Router,private matDialogRef:MatDialog){}
 
@@ -32,8 +32,18 @@ viewData(id:any){
   this.router.navigateByUrl("dashboard/jobseeker/"+id);
 }
 
+//search vacancy
+search(text:any){
+  console.warn(text);
+  if(text==undefined || text.length==0){
+    this.getAllJobSeekers();
+  }else{
+    this.jobSeekerService.searchJobSeeker(text).subscribe((res)=>{
+      console.warn(res);
+      this.allJobSeekerData=res;
+    })
+  }
 
-
-
+}
 
 }
