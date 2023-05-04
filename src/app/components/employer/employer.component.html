@@ -1,6 +1,15 @@
 <div class="employer" >
 
+  <div class="row">
+    <div class="col-sm-9">
+      <input class="form-control"  [(ngModel)]="searchText" type="search" placeholder="Enter Employer Name" style="width: 100%;margin-bottom: 20px;background-color: rgba(255, 255, 255, 0.425);border-color: #a09b9b;border-width: 1px;">
 
+    </div>
+    <div class="col-sm-3">
+      <button mat-icon-button color="primary" (click)="search(searchText)">
+        <mat-icon [inline]="true" style="color: rgb(125, 128, 125);">search</mat-icon>
+      </button>
+    </div>
   <table class="employerData" mat-table [dataSource]="allEmployerData">
     <ng-container matColumnDef="companyNumber">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>

@@ -51,8 +51,16 @@ showVacancies(id:any){
   this.router.navigateByUrl("dashboard/employer/"+id+"/vacancy");
 }
 
-//search company
-search(){
-  console.warn(this.searchText);
+//search vacancy
+search(text:any){
+  console.warn(text);
+  if(text==undefined || text.length==0){
+    this.getAllEmployer();
+  }else{
+    this.employerService.searchEmployer(text).subscribe((res)=>{
+      console.warn(res);
+      this.allEmployerData=res;
+    })
+  }
 }
 }
