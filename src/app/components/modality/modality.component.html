@@ -1,15 +1,15 @@
-<div class="type" >
+<div class="modality" >
   <div class="row" >
     <div class="col" style="text-align: right;">
-      <button mat-icon-button color="primary" (click)="addType()">
+      <button mat-icon-button color="primary" (click)="addModality()">
         <mat-icon style="color: rgb(6, 182, 58);">add_box</mat-icon>
       </button>
     </div>
 
   </div>
 
-  <table class="typeData" mat-table [dataSource]="types">
-    <ng-container matColumnDef="typeNumber">
+  <table class="modalityData" mat-table [dataSource]="modalities">
+    <ng-container matColumnDef="modalityNumber">
       <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
       <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
     </ng-container>
@@ -32,7 +32,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
       <td mat-cell *matCellDef="let data" style="text-align: center;">
-        <button mat-icon-button color="primary" (click)="updateType(data.id,data.title)">
+        <button mat-icon-button color="primary" (click)="updateModality(data.id,data.title)">
           <mat-icon [inline]="true" style="color: rgb(6, 182, 58);">create</mat-icon>
         </button>
       </td>
@@ -42,14 +42,14 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
       <td mat-cell *matCellDef="let data" style="text-align: center;">
-        <button mat-icon-button color="primary" (click)="deleteType(data.id)">
+        <button mat-icon-button color="primary" (click)="deleteModality(data.id)">
           <mat-icon [inline]="true" style="color: rgb(241, 7, 7);">delete</mat-icon>
         </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['typeNumber','id','title','edit','delete']"></tr>
-    <tr mat-row *matRowDef="let data; index as i; columns: ['typeNumber','id','title', 'edit','delete']"></tr>
+    <tr mat-header-row *matHeaderRowDef="['modalityNumber','id','title','edit','delete']"></tr>
+    <tr mat-row *matRowDef="let data; index as i; columns: ['modalityNumber','id','title', 'edit','delete']"></tr>
   </table>
 
 </div>
