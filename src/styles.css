@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css" ;
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
-html, body { height: 100%; width:100%;background: linear-gradient(to right, #0f104d, #700258);}
+html, body { height: 100%; width:100%;background: linear-gradient(to right, rgb(86, 6, 117), rgb(3, 122, 126));}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* html, body { height: 100%; }

@@ -27,6 +27,8 @@ export class EditVacancyDataComponent {
   jobDescriptionImg:any;
   jobModality:any;
   salaryRange:any;
+  lowSalaryLimit:any;
+  upperSalaryLimit:any;
   jobTitle:any;
   jobType:any;
   modality:any;
@@ -63,7 +65,8 @@ export class EditVacancyDataComponent {
 
   this.updateJob = this.formBuilder.group({
     jobTitle:[''],
-    salaryRange:[''],
+    lowSalaryLimit:[''],
+      upperSalaryLimit:[''],
     jobDescription:[''],
     category:[''],
     modality:[''],
@@ -126,14 +129,21 @@ getVacancyDataById(){
   this.category=this.data.category.id;
   this.type=this.data.type.id;
   this.modality=this.data.modality.id;
+
+  var words=this.salaryRange.split(" ");
+  this.lowSalaryLimit=words[0];
+  this.upperSalaryLimit=words[2];
+  console.warn("Low limit: "+this.lowSalaryLimit);
+  console.warn("Upper limit: "+this.upperSalaryLimit)
   })
+
 }
 
 updateVacancy(){
   this.submitted = true
 
 this.companyId=this.company.id;
-
+this.salaryRange=this.lowSalaryLimit+" - "+this.upperSalaryLimit;
 this.vacancy={
   "id":this.vacancyId,
   "employer":this.companyId,

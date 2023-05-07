@@ -27,6 +27,8 @@ export class PostJobComponent {
   jobDescriptionImg:any;
   jobModality:any;
   salaryRange:any;
+  lowSalaryLimit:any;
+  upperSalaryLimit:any;
   jobTitle:any;
   jobType:any;
   modality:any;
@@ -66,7 +68,8 @@ noDescription:boolean=false;
 
     this.postJob = this.formBuilder.group({
       jobTitle:['',Validators.required],
-      salaryRange:['',Validators.required],
+      lowSalaryLimit:['',Validators.required],
+      upperSalaryLimit:['',Validators.required],
       jobDescription:[''],
       jobDescriptionImg:[''],
       category:['',[Validators.required]],
@@ -132,6 +135,7 @@ noDescription:boolean=false;
     }else if(this.jobDescription==null && this.jobDescriptionImg==null){
     this.noDescription=true;
     }else{
+      this.salaryRange=this.lowSalaryLimit+" - "+this.upperSalaryLimit;
   this.vacancy={
     "employer":this.companyId,
    "title":this.jobTitle,

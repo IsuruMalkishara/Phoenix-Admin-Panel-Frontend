@@ -1,6 +1,6 @@
 <div class="vacancy">
   <div >
-    <div class="card" style="background-color: rgba(255, 255, 255, 0.137);">
+    <div class="card" style=" background-color: rgb(3, 122, 126)">
       <div class="card-body" >
         <h1 class="card-title-center" style="text-align: center;color: rgb(252, 250, 250);">Add a New Vacancy</h1>
         <form (submit)="addVacancy()" [formGroup]="postJob">
@@ -22,17 +22,36 @@
             </div>
             <div class="row" style="margin-top: 10px;">
 
-                <div class="col-sm-3">
-                  <label for="salaryRange" class="label">Salary Range:</label>
-                </div>
-                <div class="col-sm-9">
-                  <input [ngClass]="{'is-invalid':submitted && postJob.controls['salaryRange'].errors}" formControlName="salaryRange" type="text" class="form-control" [(ngModel)]="salaryRange" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
-                  <div *ngIf="submitted && postJob.controls['salaryRange'].errors" class="text-danger">
-                    <div *ngIf="submitted && postJob.controls['salaryRange'].errors['required']">
-                      Salary range is required
-                    </div>
-                  </div>
-                </div>
+              <div class="col-sm-3">
+                <label for="salaryRange" class="label">Salary Range:</label>
+              </div>
+              <div class="col-sm-4">
+                <select class="form-control"  [ngClass]="{'is-invalid':submitted && postJob.controls['lowSalaryLimit'].errors}" formControlName="lowSalaryLimit" [(ngModel)]="lowSalaryLimit" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+
+                  <option value="0">0</option>
+                  <option value="5000">5000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">20000</option>
+                  <option value="20000">50000</option>
+                  <option value="15000">80000</option>
+                  <option value="20000">120000</option>
+                  <option value="20000">180000</option>
+                </select>
+              </div>
+              <div class="col-sm-1" style="margin-top: 10px;"><label class="label">to</label></div>
+              <div class="col-sm-4">
+                <select class="form-control"  [ngClass]="{'is-invalid':submitted && postJob.controls['upperSalaryLimit'].errors}" formControlName="upperSalaryLimit" [(ngModel)]="upperSalaryLimit" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+
+                  <option value="5000">5000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">20000</option>
+                  <option value="20000">50000</option>
+                  <option value="25000">80000</option>
+                  <option value="20000">120000</option>
+                  <option value="20000">180000</option>
+                  <option value="more">More</option>
+                </select>
+              </div>
 
             </div>
             <div class="row" style="margin-top: 10px;">
@@ -53,7 +72,7 @@
                 <label for="logo" class="label">Description Image:</label>
               </div>
               <div class="col-sm-9" >
-                <input  formControlName="jobDescriptionImg" type="file" class="form-control" (change)="onSelectFile($event)"  accept="image/*" style="background-color: rgba(255, 255, 255, 0.425);width: 100%;">
+                <input  formControlName="jobDescriptionImg" type="file" class="form-control" (change)="onSelectFile($event)"  accept="image/*" style="background-color: rgba(255, 255, 255, 0.425);width: 100%;border-radius: 20px;">
 
               </div>
 
@@ -115,9 +134,9 @@
 
             </div>
 
-            <div class="row" style="margin-top: 10px;text-align: center;">
-              <div class="form-group">
-                <button type="submit" class="btn " style="border-radius: 20px;width: 100%;background-color: rgba(51, 8, 209, 0.219);color: white;">SAVE</button>
+            <div class="row" style="margin-top: 10px;">
+              <div class="col" style="text-align: center;">
+                <button type="submit" class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(51, 8, 209, 0.219);color: white;">SAVE</button>
 
               </div>
             </div>

@@ -1,7 +1,7 @@
 <div class="employer">
   <div >
     <div class="card" >
-      <div class="card-body" style="background-color: rgb(12, 12, 87)">
+      <div class="card-body" style="background-color: rgb(3, 122, 126)">
         <h1 class="card-title-center" style="text-align: center;">{{ name }}</h1>
         <form (submit)="updateEmployerData()" [formGroup]="updateEmployer">
           <div class="form-group">
@@ -11,7 +11,7 @@
                 <img src="{{ logo }}" style="height: 60%;width:60%; ">
               </div>
               <div class="col">
-                <input class="form-control" type="file" value="{{ logo }}" name="logo"  accept="image/*" (change)="changeLogo($event)">
+                <input class="form-control" type="file" value="{{ logo }}" name="logo"  accept="image/*" (change)="changeLogo($event)" style="border-radius: 20px;">
               </div>
 
           </div>
@@ -21,7 +21,7 @@
                   <label for="companyName">Company Name:</label>
                 </div>
                 <div class="col">
-                  <input  formControlName="name" type="text" class="form-control" [(ngModel)]="name" value="{{ name }}" style="background-color: rgba(255, 255, 255, 0.425);">
+                  <input  formControlName="name" type="text" class="form-control" [(ngModel)]="name" value="{{ name }}" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;">
                 </div>
 
             </div>
@@ -31,7 +31,7 @@
                 <label for="address">Address:</label>
               </div>
               <div class="col">
-                <input  formControlName="address" type="text" class="form-control" [(ngModel)]="address" value="{{ address }}" style="background-color: rgba(255, 255, 255, 0.425);">
+                <input  formControlName="address" type="text" class="form-control" [(ngModel)]="address" value="{{ address }}" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;">
               </div>
 
           </div>
@@ -41,7 +41,7 @@
               <label for="email">Email Address:</label>
             </div>
             <div class="col">
-              <input  formControlName="email" type="text" class="form-control" [(ngModel)]="email" value="{{ email }}" style="background-color: rgba(255, 255, 255, 0.425);">
+              <input  formControlName="email" type="text" class="form-control" [(ngModel)]="email" value="{{ email }}" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;">
             </div>
 
         </div>
@@ -51,7 +51,7 @@
             <label for="phone">Phone Number:</label>
           </div>
           <div class="col">
-            <input  formControlName="phone" type="text" class="form-control" [(ngModel)]="phone" value="{{ phone }}" style="background-color: rgba(255, 255, 255, 0.425);">
+            <input  formControlName="phone" type="text" class="form-control" [(ngModel)]="phone" value="{{ phone }}" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;">
           </div>
 
       </div>
@@ -72,9 +72,10 @@
     </div>
 
 
-            <div class="row" style="margin-top: 10px;text-align: center;">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" >UPDATE</button>
+            <div class="row" style="margin-top: 10px;">
+              <div class="col" style="text-align: center;">
+                <button type="submit" class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(51, 8, 209, 0.219);color: white;">UPDATE</button>
+
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 <div class="vacancy">
 
   <div >
-    <div class="card" style="background-color: rgb(4, 69, 155)">
+    <div class="card" style="background-color: rgb(3, 122, 126)">
       <div class="card-body" >
         <h1 class="card-title-center" style="text-align: center;color: white;">{{ jobTitle }}</h1>
         <form (submit)="updateVacancy()" [formGroup]="updateJob">
@@ -12,18 +12,43 @@
                   <label for="jobTitle" class="label">Title:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input  formControlName="jobTitle" type="text" class="form-control" [(ngModel)]="jobTitle" value="{{ jobTitle }}" style="background-color: rgba(255, 255, 255, 0.425);">
+                  <input  formControlName="jobTitle" type="text" class="form-control" [(ngModel)]="jobTitle" value="{{ jobTitle }}" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;">
                 </div>
 
             </div>
             <div class="row" style="margin-top: 10px;">
 
-                <div class="col-sm-3">
-                  <label for="salaryRange" class="label">Salary Range:</label>
-                </div>
-                <div class="col-sm-9">
-                  <input  formControlName="salaryRange" type="text" class="form-control" [(ngModel)]="salaryRange" value="{{ salaryRange }}" style="background-color: rgba(255, 255, 255, 0.425);">
-                </div>
+              <div class="col-sm-3">
+                <label for="salaryRange" class="label">Salary Range:</label>
+              </div>
+              <div class="col-sm-4">
+                <select class="form-control"  formControlName="lowSalaryLimit" [(ngModel)]="lowSalaryLimit" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+                  <option value="{{ lowSalaryLimit }}" selected>{{ lowSalaryLimit }}</option>
+                  <option value="0">0</option>
+                  <option value="5000">5000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">20000</option>
+                  <option value="20000">50000</option>
+                  <option value="15000">80000</option>
+                  <option value="20000">120000</option>
+                  <option value="20000">180000</option>
+                </select>
+              </div>
+              <div class="col-sm-1" style="margin-top: 10px;"><label class="label">to</label></div>
+              <div class="col-sm-4">
+                <select class="form-control"   formControlName="upperSalaryLimit" [(ngModel)]="upperSalaryLimit" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+                  <option value="{{ upperSalaryLimit }}" selected>{{ upperSalaryLimit }}</option>
+                  <option value="5000">5000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">20000</option>
+                  <option value="20000">50000</option>
+                  <option value="25000">80000</option>
+                  <option value="20000">120000</option>
+                  <option value="20000">180000</option>
+                  <option value="More">More</option>
+                </select>
+              </div>
+
 
             </div>
             <div class="row" style="margin-top: 10px;">
@@ -42,7 +67,7 @@
                 <label for="logo" class="label">Description Image:</label>
               </div>
               <div class="col-sm-9" >
-                <input  formControlName="jobDescriptionImg" type="file" class="form-control" (change)="onSelectFile($event)"  accept="image/*" style="background-color: rgba(255, 255, 255, 0.425);width: 100%;">
+                <input  formControlName="jobDescriptionImg" type="file" class="form-control" (change)="onSelectFile($event)" value="jobDescriptionImg" accept="image/*" style="background-color: rgba(255, 255, 255, 0.425);width: 100%;border-radius: 20px;">
 
               </div>
 
@@ -54,7 +79,7 @@
                   <label for="category" class="label">Job Category:</label>
                 </div>
                 <div class="col-sm-9">
-                  <select class="form-control" formControlName="category" [(ngModel)]="category"style="background-color: rgba(255, 255, 255, 0.425);" >
+                  <select class="form-control" formControlName="category" [(ngModel)]="category"style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;" >
                     <option value="jobCategory.id" selected>{{ jobCategory.title }}</option>
                     <option  *ngFor="let category of jobCategoryList" [value]="category.id">{{ category.title }}</option>
                   </select>
@@ -67,7 +92,7 @@
                   <label for="modality" class="label">Job Modality:</label>
                 </div>
                 <div class="col-sm-9">
-                  <select class="form-control"  formControlName="modality" [(ngModel)]="modality"style="background-color: rgba(255, 255, 255, 0.425);" >
+                  <select class="form-control"  formControlName="modality" [(ngModel)]="modality"style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;" >
                     <option  value="jobModality.id" selected>{{ jobModality.title }}</option>
                     <option  *ngFor="let modality of jobModalityList" [value]="modality.id">{{ modality.title }}</option>
                   </select>
@@ -80,7 +105,7 @@
                   <label for="type" class="label">Job Type:</label>
                 </div>
                 <div class="col-sm-9">
-                  <select class="form-control" formControlName="type" [(ngModel)]="type" style="background-color: rgba(255, 255, 255, 0.425);" >
+                  <select class="form-control" formControlName="type" [(ngModel)]="type" style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;" >
                     <option  value="jobType.id" selected>{{ jobType.title }}</option>
                     <option  *ngFor="let type of jobTypeList" [value]="type.id">{{ type.title }}</option>
                   </select>
@@ -90,7 +115,7 @@
 
             <div class="row" style="margin-top: 10px;text-align: center;">
               <div class="form-group">
-                <button type="submit"  class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(198, 185, 245, 0.219);color: white;">UPDATE</button>
+                <button type="submit"  class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(51, 8, 209, 0.219);color: white;">UPDATE</button>
               </div>
             </div>
 

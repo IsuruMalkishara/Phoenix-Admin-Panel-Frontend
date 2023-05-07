@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployerService } from 'src/app/services/employer.service';
 import { VacancyService } from 'src/app/services/vacancy.service';
 
 @Component({
@@ -12,9 +13,11 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 export class EmployersVacancyComponent {
 
   employerId:any;
+  employerName:any;
   allVacancyData:any;
+  data:any;
 
-  constructor(private vacancyService:VacancyService,private matDialogRef:MatDialog,private route:ActivatedRoute,private router: Router,private formBuilder:FormBuilder){}
+  constructor(private vacancyService:VacancyService,private matDialogRef:MatDialog,private route:ActivatedRoute,private router: Router,private formBuilder:FormBuilder,private employerService:EmployerService){}
 
   ngOnInit():void{
   this.route.params.subscribe(params => {
@@ -22,6 +25,7 @@ export class EmployersVacancyComponent {
   });
 
   this.getVacancyDataById();
+  this.getEmployerById();
 }
 
 getVacancyDataById(){
@@ -29,6 +33,15 @@ getVacancyDataById(){
   this.vacancyService.getVacancyByEmployerId(this.employerId).subscribe((res)=>{
     console.warn(res);
   this.allVacancyData=res;
+  })
+}
+
+getEmployerById(){
+
+  this.employerService.getEmployerById(this.employerId).subscribe((res)=>{
+    console.warn(res);
+  this.data=res;
+this.employerName=this.data.name;
   })
 }
 
