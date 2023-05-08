@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class WarningPopupComponent {
   id:any;
+  employerId:any;
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private matDialogRef:MatDialog,private vacanncyService:VacancyService,private router:Router) {
     this.id = data.id
   }
@@ -32,7 +33,7 @@ export class WarningPopupComponent {
 
           if(res==true){
             this.matDialogRef.closeAll();
-            this.router.navigateByUrl("dashboard");
+            this.router.navigateByUrl("dashboard/vacancy");
             this.openDialog();
           }
         })

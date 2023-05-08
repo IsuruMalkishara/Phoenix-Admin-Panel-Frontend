@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
@@ -141,7 +143,10 @@ const routes:Routes=[
     AngularEditorModule,
     MatFormFieldModule,
     MatBadgeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
 
   ],
   exports:[RouterModule,MatSidenavModule,MatTableModule],

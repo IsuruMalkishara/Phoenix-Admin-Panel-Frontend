@@ -113,6 +113,23 @@
 
             </div>
 
+            <div class="row" style="margin-top: 10px;">
+              <div class="col-sm-3"><label for="expirationDate" class="label">Expiration Date:</label></div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-11">
+                    <input  [matDatepicker]="picker" placeholder="Choose expiration date" formControlName="expirationDate" [(ngModel)]="expirationDate" type="datetime" class="form-control"   style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+
+                  </div>
+                  <div class="col-1">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
             <div class="row" style="margin-top: 10px;text-align: center;">
               <div class="form-group">
                 <button type="submit"  class="btn " style="border-radius: 20px;width: 150px;background-color: rgba(51, 8, 209, 0.219);color: white;">UPDATE</button>

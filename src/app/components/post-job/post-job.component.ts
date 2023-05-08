@@ -34,6 +34,7 @@ export class PostJobComponent {
   modality:any;
   category:any;
   type:any;
+  expirationDate:any;
 
 
   id:any;
@@ -75,6 +76,7 @@ noDescription:boolean=false;
       category:['',[Validators.required]],
       modality:['',[Validators.required]],
       type:['',[Validators.required]],
+      expirationDate:['',Validators.required]
 
     })
 
@@ -144,7 +146,8 @@ noDescription:boolean=false;
    "salaryRange":this.salaryRange,
    "category":this.category,
    "modality":this.modality,
-   "type":this.type
+   "type":this.type,
+   "expirationDate":this.expirationDate
 
   }
 

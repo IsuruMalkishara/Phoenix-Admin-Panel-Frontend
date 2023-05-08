@@ -34,6 +34,7 @@ export class EditVacancyDataComponent {
   modality:any;
   category:any;
   type:any;
+  expirationDate:any;
 
   jobCategoryList:any;
   jobModalityList:any;
@@ -71,6 +72,7 @@ export class EditVacancyDataComponent {
     category:[''],
     modality:[''],
     type:[''],
+    expirationDate:['']
 
   })
 
@@ -129,6 +131,7 @@ getVacancyDataById(){
   this.category=this.data.category.id;
   this.type=this.data.type.id;
   this.modality=this.data.modality.id;
+  this.expirationDate=this.data.expirationDate;
 
   var words=this.salaryRange.split(" ");
   this.lowSalaryLimit=words[0];
@@ -153,7 +156,8 @@ this.vacancy={
  "salaryRange":this.salaryRange,
  "category":this.category,
  "modality":this.modality,
- "type":this.type
+ "type":this.type,
+ "expirationDate":this.expirationDate
 
 }
 

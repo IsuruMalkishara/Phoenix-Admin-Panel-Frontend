@@ -31,11 +31,11 @@
                   <option value="0">0</option>
                   <option value="5000">5000</option>
                   <option value="10000">10000</option>
-                  <option value="15000">20000</option>
-                  <option value="20000">50000</option>
-                  <option value="15000">80000</option>
-                  <option value="20000">120000</option>
-                  <option value="20000">180000</option>
+                  <option value="20000">20000</option>
+                  <option value="50000">50000</option>
+                  <option value="80000">80000</option>
+                  <option value="120000">120000</option>
+                  <option value="180000">180000</option>
                 </select>
               </div>
               <div class="col-sm-1" style="margin-top: 10px;"><label class="label">to</label></div>
@@ -44,11 +44,11 @@
 
                   <option value="5000">5000</option>
                   <option value="10000">10000</option>
-                  <option value="15000">20000</option>
-                  <option value="20000">50000</option>
-                  <option value="25000">80000</option>
-                  <option value="20000">120000</option>
-                  <option value="20000">180000</option>
+                  <option value="20000">20000</option>
+                  <option value="50000">50000</option>
+                  <option value="80000">80000</option>
+                  <option value="120000">120000</option>
+                  <option value="180000">180000</option>
                   <option value="more">More</option>
                 </select>
               </div>
@@ -132,6 +132,22 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="row" style="margin-top: 10px;">
+              <div class="col-sm-3"><label for="expirationDate" class="label">Expiration Date:</label></div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-11">
+                    <input  [matDatepicker]="picker" placeholder="Choose expiration date" formControlName="expirationDate" [(ngModel)]="expirationDate" type="datetime" class="form-control"   style="background-color: rgba(255, 255, 255, 0.425);border-radius: 20px;width: 100%;">
+
+                  </div>
+                  <div class="col-1">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             <div class="row" style="margin-top: 10px;">
