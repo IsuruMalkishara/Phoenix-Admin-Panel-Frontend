@@ -1,0 +1,102 @@
+<div class="employer" >
+
+  <div class="row">
+    <div class="col-sm-9">
+      <input class="form-control"  [(ngModel)]="searchText" type="search" placeholder="Enter Employer Name" style="width: 100%;margin-bottom: 20px;background-color: rgba(255, 255, 255, 0.425);border-color: #a09b9b;border-width: 1px;">
+
+    </div>
+    <div class="col-sm-3">
+      <button mat-icon-button color="primary" (click)="search(searchText)">
+        <mat-icon [inline]="true" style="color: rgb(125, 128, 125);">search</mat-icon>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col" style="text-align: center;"><h1>Employers</h1></div>
+    </div>
+  <table class="employerData" mat-table [dataSource]="allEmployerData">
+    <ng-container matColumnDef="companyNumber">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
+      <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- Logo Column -->
+    <ng-container matColumnDef="logo">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Logo</th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <img
+              src="{{ company.logo }}"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Name</th>
+      <td mat-cell *matCellDef="let company">{{ company.name }}</td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Address</th>
+      <td mat-cell *matCellDef="let company">{{ company.address }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Email</th>
+      <td mat-cell *matCellDef="let company">{{ company.email }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Phone</th>
+      <td mat-cell *matCellDef="let company">{{ company.phone }}</td>
+    </ng-container>
+
+    <!-- Verification Column -->
+    <ng-container matColumnDef="verified">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Verification</th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <mat-icon *ngIf="company.verification" style="color: rgb(8, 247, 59);">verified_user</mat-icon>
+        <mat-icon *ngIf="!company.verification" style="color: rgb(247, 24, 8);">block</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- Vacancy Button Column -->
+    <ng-container matColumnDef="vacancy">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="showVacancies(company.id)">
+          <mat-icon [inline]="true" style="color: rgb(103, 4, 122);">comment</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Edit Button Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="editEmployer(company.id)">
+          <mat-icon [inline]="true" style="color: rgb(6, 182, 58);">create</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let company" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="deleteEmployer(company.id)">
+          <mat-icon [inline]="true" style="color: rgb(241, 7, 7);">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['companyNumber','logo','name','address','email','phone', 'verified','vacancy', 'edit','delete']"></tr>
+    <tr mat-row *matRowDef="let company; index as i; columns: ['companyNumber','logo','name', 'address','email','phone','verified','vacancy', 'edit','delete']"></tr>
+  </table>
+
+</div>

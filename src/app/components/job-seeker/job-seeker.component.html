@@ -1,0 +1,66 @@
+<div class="jobseeker" >
+  <div class="row">
+    <div class="col-sm-9">
+      <input class="form-control"  [(ngModel)]="searchText" type="search" placeholder="Enter Job Seeker's Name" style="width: 100%;margin-bottom: 20px;background-color: rgba(255, 255, 255, 0.425);border-color: #a09b9b;border-width: 1px;">
+
+    </div>
+    <div class="col-sm-3">
+      <button mat-icon-button color="primary" (click)="search(searchText)">
+        <mat-icon [inline]="true" style="color: rgb(125, 128, 125);">search</mat-icon>
+      </button>
+    </div>
+    </div>
+<div class="row">
+  <div class="col" style="text-align: center;"><h1>Job Seekers</h1></div>
+</div>
+<div class="row" style="margin-top: 20px;">
+  <table class="jobeekerData" mat-table [dataSource]="allJobSeekerData">
+    <ng-container matColumnDef="jobseekerNumber">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
+      <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
+    </ng-container>
+
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="fname">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">First Name</th>
+      <td mat-cell *matCellDef="let jobseeker">{{ jobseeker.firstName }}</td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lname">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Last Name</th>
+      <td mat-cell *matCellDef="let jobseeker">{{ jobseeker.lastName }}</td>
+    </ng-container>
+
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Email Address</th>
+      <td mat-cell *matCellDef="let jobseeker">{{ jobseeker.email }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Phone Number</th>
+      <td mat-cell *matCellDef="let jobseeker">{{ jobseeker.phone }}</td>
+    </ng-container>
+
+
+<!-- View Button Column -->
+<ng-container matColumnDef="view">
+  <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+  <td mat-cell *matCellDef="let jobseeker" style="text-align: center;">
+    <button mat-icon-button color="primary" (click)="viewData(jobseeker.id)">
+      <mat-icon style="color: rgb(8, 219, 247);">visibility</mat-icon>
+    </button>
+  </td>
+</ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="['jobseekerNumber','fname','lname','email','phone', 'view']"></tr>
+    <tr mat-row *matRowDef="let company; index as i; columns: ['jobseekerNumber','fname','lname', 'email','phone','view']"></tr>
+  </table>
+</div>
+</div>

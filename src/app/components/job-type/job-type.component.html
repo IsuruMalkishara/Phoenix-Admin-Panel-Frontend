@@ -1,0 +1,58 @@
+<div class="type" >
+  <div class="row">
+    <div class="col" style="text-align: center;"><h1>Job Types</h1></div>
+  </div>
+  <div class="row" >
+    <div class="col" style="text-align: right;">
+      <button mat-icon-button color="primary" (click)="addType()">
+        <mat-icon style="color: rgb(6, 182, 58);">add_box</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <table class="typeData" mat-table [dataSource]="types">
+    <ng-container matColumnDef="typeNumber">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Number</th>
+      <td mat-cell *matCellDef="let i=index">{{ i + 1 }}</td>
+    </ng-container>
+
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">ID</th>
+      <td mat-cell *matCellDef="let data">{{ data.id }}</td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;background-color: rgb(103, 4, 122);">Title</th>
+      <td mat-cell *matCellDef="let data">{{ data.title }}</td>
+    </ng-container>
+
+
+    <!-- Edit Button Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let data" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="updateType(data.id,data.title)">
+          <mat-icon [inline]="true" style="color: rgb(6, 182, 58);">create</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="background-color: rgb(103, 4, 122);"></th>
+      <td mat-cell *matCellDef="let data" style="text-align: center;">
+        <button mat-icon-button color="primary" (click)="deleteType(data.id)">
+          <mat-icon [inline]="true" style="color: rgb(241, 7, 7);">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['typeNumber','id','title','edit','delete']"></tr>
+    <tr mat-row *matRowDef="let data; index as i; columns: ['typeNumber','id','title', 'edit','delete']"></tr>
+  </table>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="vacancy">
+  <div class="card" style="background-color: rgb(3, 122, 126);width: 75%;">
+    <div class="card-body">
+      <div class="row" style="text-align: right;">
+        <div class="col">
+          <a   (click)="showRequests(data.id)" class="requests" [matBadge]="data.numOfRequests" matBadgeColor="warn" matBadgeSize="small" matBadgePosition="above after"><mat-icon [inline]="true" style="color: rgb(6, 182, 58);transform: scale(1.5);">feedback</mat-icon></a>&nbsp;&nbsp;
+           <a class="edit" (click)="update(data.id)"><mat-icon [inline]="true" style="color: rgb(6, 182, 58);transform: scale(1.5);">create</mat-icon></a>&nbsp;&nbsp;
+           <a class="delete" (click)="delete(data.id)"> <mat-icon [inline]="true" style="color: rgb(241, 7, 7);transform: scale(1.5);">delete</mat-icon></a>
+        </div>
+
+      </div>
+      <div class="row">
+        <h1 class="card-title-center" style="text-align: center;">{{ data.title }}</h1>
+      </div>
+
+      <div class="row">
+      <div class="col-sm-1"><img src="{{ data.employer.logo }}" alt="" height="60px" width="60px"></div>
+      <div class="col-sm-11">
+        <div class="row"><p>{{ data.employer.name }}</p></div>
+        <div class="row"><p>{{ data.employer.address }}</p></div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col"><p>Salary Range: {{ data.salaryRange }}</p></div>
+      </div>
+      <div class="row">
+         <div class="col"><p>Category: {{ data.category.title }}</p></div>
+        <div class="col"><p>Type: {{ data.type.title }}</p></div>
+         <div class="col"><p>Modality: {{ data.modality.title }}</p></div>
+      </div>
+      <div class="row">
+        <div class="col"><p>Posted Date: {{ data.postedDate }}</p></div>
+        <div class="col" style="text-align: right;"><p>Expiration Date: {{ data.expirationDate }}</p></div>
+      </div>
+      <div class="row">
+        <div [innerHTML]="data.description"></div>
+      </div>
+      <div class="row" >
+        <div class="col" *ngIf="data.descriptionImg" style="margin-top: 10px;text-align: center;"><img src="{{ data.descriptionImg }}" alt="" style="height: 400px; width: 350px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
