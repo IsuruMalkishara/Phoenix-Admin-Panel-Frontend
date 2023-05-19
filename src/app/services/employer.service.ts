@@ -28,7 +28,7 @@ export class EmployerService {
   }
 
   searchEmployer(data:any){
-    return this.http.post(this.url+"employer/title",data);
+    return this.http.post(this.url+"employer/title",{ title: data });
   }
 
 }

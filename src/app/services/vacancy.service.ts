@@ -38,6 +38,6 @@ export class VacancyService {
   }
 
   searchVacancy(data:any){
-    return this.http.post(this.url+"vacancy/title",data);
+    return this.http.post(this.url+"vacancy/title",{ title: data });
   }
 }

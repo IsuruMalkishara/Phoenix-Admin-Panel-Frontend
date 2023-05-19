@@ -23,7 +23,7 @@ export class JobseekerService {
   }
 
   searchJobSeeker(data:any){
-    return this.http.post(this.url+"jobseeker/title",data);
+    return this.http.post(this.url+"jobseeker/title",{ title: data });
   }
 
 }
